@@ -32,4 +32,5 @@ func main() {
 	stopListening := dg.AddHandler(amabot.Handle)
 
 	amabot.Loop(dg, stopListening)
+	dg.Close()
 }
