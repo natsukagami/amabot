@@ -26,11 +26,13 @@ func main() {
 		fmt.Println("error creating Discord session,", err)
 		return
 	}
+
 	dg.Open()
+	defer dg.Close()
+
 	fmt.Println("Bot online")
 
 	stopListening := dg.AddHandler(amabot.Handle)
 
 	amabot.Loop(dg, stopListening)
-	dg.Close()
 }
