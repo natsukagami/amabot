@@ -37,8 +37,8 @@ func Handle(s *discordgo.Session, m *discordgo.MessageCreate) {
 		err = Init(s, m.Message, content[len("init "):])
 	}
 	if hasInit {
-		if m.ChannelID == askChannelID && strings.HasPrefix(content, "ask") {
-			err = Ask(s, m.Message, content[len("init"):])
+		if m.ChannelID == askChannelID && strings.HasPrefix(content, "ask ") {
+			err = Ask(s, m.Message, content[len("ask "):])
 		}
 		if m.ChannelID == queueChannelID {
 			switch content {
